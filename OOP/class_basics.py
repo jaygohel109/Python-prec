@@ -7,6 +7,7 @@ class Employee:
     def __init__(self, fname, lname, pay):
         self.fname = fname
         self.lname = lname
+        self.email = fname.lower() + "." + lname.lower() + "@company.com" 
         self.pay = pay
 
     def full_name(self):
