@@ -8,3 +8,7 @@
 - Inheritence
 - Magic/Dunder Methods
 - Classmethods and Staticmethods
+
+## Day-3
+- Exception Handling
+- Regular Expressions
