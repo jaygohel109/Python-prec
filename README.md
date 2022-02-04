@@ -12,3 +12,7 @@
 ## Day-3
 - Exception Handling
 - Regular Expressions
+
+## Day-4
+- requests library
+- basic http methods
