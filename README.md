@@ -16,3 +16,7 @@
 ## Day-4
 - requests library
 - basic http methods
+
+## Day-6
+- wondering where does the day-5 gone?
+- rest api
