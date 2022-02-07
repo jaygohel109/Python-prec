@@ -2,10 +2,11 @@
 Python program to check whether given url is safe or not
 """
 
-from wsgiref import headers
+
 import requests
 import base64
 import json
+import urllib3
 
 # headers = {
 #     'format': 'json',
@@ -32,17 +33,19 @@ import json
 
 endpoint = "https://checkurl.phishtank.com/checkurl/"
 url = "http://www.travelswitchfly.com/"
-r = requests.post(endpoint, data={"url": url, "format": "json"})
-dict = r.json()
+# r = requests.post(endpoint, data={"url": url, "format": "json"})
+# dict = r.json()
 
-if dict['results']['in_database'] == True:
-    print("Its in a database!")
-    if dict['results']['verified'] == True:
-        print("Oh no its a phish!!")
-    else:
-        print("Good to go")
-else:
-    print("I haven't met this url in my whole")
+# if dict['results']['in_database'] == True:
+#     print("Its in a database!")
+#     if dict['results']['verified'] == True:
+#         print("Oh no its a phish!!")
+#     else:
+#         print("Good to go")
+# else:
+#     print("I haven't met this url in my whole")
 
-#{'url': 'http://www.travelswitchfly.com/', 'in_database': True, 'phish_id': '4749420', 'phish_detail_page': 'http://www.phishtank.com/phish_detail.php?phish_id=4749420', 'verified': True, 'verified_at': '2017-01-16T19:40:21+00:00', 'valid': True}
-#{'url': 'http://www.google.com/', 'in_database': True, 'phish_id': '11605', 'phish_detail_page': 'http://www.phishtank.com/phish_detail.php?phish_id=11605', 'verified': False, 'verified_at': None, 'valid': False}
+http = urllib3.PoolManager()
+
+res = http.request('POST', url= endpoint, body=url)
+print(res)
