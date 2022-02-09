@@ -31,21 +31,45 @@ import urllib3
 # url = get_url_with_ip(new_check)
 # r = send_the_request_to_phish_tank(url, headers)
 
-endpoint = "https://checkurl.phishtank.com/checkurl/"
-url = "http://www.travelswitchfly.com/"
-# r = requests.post(endpoint, data={"url": url, "format": "json"})
-# dict = r.json()
+def phishcheck_requests():
 
-# if dict['results']['in_database'] == True:
-#     print("Its in a database!")
-#     if dict['results']['verified'] == True:
-#         print("Oh no its a phish!!")
-#     else:
-#         print("Good to go")
-# else:
-#     print("I haven't met this url in my whole")
+    endpoint = "https://checkurl.phishtank.com/checkurl/"
+    url = "http://www.travelswitchfly.com/"
+    r = requests.post(endpoint, data={"url": url, "format": "json"})
+    dict = r.json()
 
-http = urllib3.PoolManager()
+    if dict['results']['in_database'] == True:
+        print("Its in a database!")
+        if dict['results']['verified'] == True:
+            print("Oh no its a phish!!")
+        else:
+            print("Good to go")
+    else:
+        print("I haven't met this url in my whole")
 
-res = http.request('POST', url= endpoint, body=url)
-print(res)
+def phishcheck_urllib(url):
+    """Function will check the url using urllib3 library"""
+
+    endpoint = "https://checkurl.phishtank.com/checkurl/"
+    url = url.encode("ascii")
+
+    payload = {
+        "url": base64.b64encode(url),
+        "format": "json",
+    }
+
+    http = urllib3.PoolManager()
+
+    try:
+        res = http.request(method="POST", url=endpoint, fields=payload)
+    except Exception as an_exception:
+        print(an_exception)
+    else:
+        res_dict = json.loads(res.data)
+        if res_dict["results"]["in_database"]:
+            if res_dict["results"]["valid"]:
+                print("Given URL is a phish!!")
+            else:
+                print("Given URL is safe!!")
+        else:
+            print("We do not have any information regarding this URL!")
