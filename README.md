@@ -27,3 +27,6 @@
 ## Day-9
 - Pytest
 - urllib3
+
+## Day-10
+- file logging
