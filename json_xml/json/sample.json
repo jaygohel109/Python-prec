@@ -1,0 +1,4 @@
+{
+    "regex": [ "reg_ex.py", "snippets.txt", "honey.py" ],
+    "rest_api": [ "phishing_check.py", "something.txt" ]
+}
