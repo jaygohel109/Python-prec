@@ -1,4 +1,5 @@
 {
     "regex": [ "reg_ex.py", "snippets.txt", "honey.py" ],
-    "rest_api": [ "phishing_check.py", "something.txt" ]
+    "rest_api": [ "phishing_check.py", "something.txt" ],
+    "OOP": ["jay.txt", "class_basics.py", "nsdgiowwogv"]
 }
