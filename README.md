@@ -30,3 +30,10 @@
 
 ## Day-10
 - file logging
+
+## Day-15
+- py2 and py3
+
+## Day-16
+- Multithreading
+- Multiprocessing
