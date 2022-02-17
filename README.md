@@ -37,3 +37,7 @@
 ## Day-16
 - Multithreading
 - Multiprocessing
+
+## Day-17
+- Closure
+- Decorators
